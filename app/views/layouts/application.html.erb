@@ -5,7 +5,8 @@
 <head>
 
   <title>Globovation</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application' , media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'signup' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,10 +16,7 @@
 
 	<%= render 'layouts/header' %>
 	<div class="container mt90">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info", role: "alert") %>
-
-		<% end %>
+		<%= render 'layouts/messages' %>
 		<%= yield %>
 	</div>
 
