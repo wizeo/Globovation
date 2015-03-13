@@ -7,16 +7,16 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    respond_with(@projects)
+    respond_with @projects
   end
 
   def show
-    respond_with(@project)
+    respond_with @project
   end
 
   def new
     @project = current_user.projects.build
-    respond_with(@project)
+    respond_with @project
   end
 
   def edit
@@ -24,18 +24,20 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
-    @project.save
-    respond_with(@project)
+    flash[:notice] = "Project was successfully created." if @project.save
+    respond_with @project
   end
 
   def update
     @project.update(project_params)
-    respond_with(@project)
+    flash[:notice] = "Project was successfully updated."
+    respond_with @project
   end
 
   def destroy
     @project.destroy
-    respond_with(@project)
+    flash[:notice] = "Project was successfully deleted."
+    respond_with @project
   end
 
   private
@@ -49,6 +51,6 @@ class ProjectsController < ApplicationController
     end  
 
     def project_params
-      params.require(:project).permit(:title, :description, :main_img_url)
+      params.require(:project).permit(:title, :description, :main_img_url, :image)
     end
 end
