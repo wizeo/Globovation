@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy] 
+  before_filter :authenticate_user!, except: [:index, :show]
 
   respond_to :html
 
@@ -13,7 +15,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
     respond_with(@project)
   end
 
@@ -21,7 +23,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
     @project.save
     respond_with(@project)
   end
@@ -40,6 +42,11 @@ class ProjectsController < ApplicationController
     def set_project
       @project = Project.find(params[:id])
     end
+
+    def correct_user
+      @project = current_user.projects.find_by(id: params[:id])
+      redirect_to projects_path, alert: "Not authorized to edit this project" if @project.nil?
+    end  
 
     def project_params
       params.require(:project).permit(:title, :description, :main_img_url)
