@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   respond_to :html
 
   def index
-    @projects = Project.all.order('created_at DESC')
+    @projects = Project.all.order('created_at DESC').paginate(:page => params[:page], :per_page =>3)
     respond_with @projects
   end
 
