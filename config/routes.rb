@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :projects
 
   devise_for :users
-  root 'pages#home'
+  root 'projects#index'
   get 'about' => 'pages#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
