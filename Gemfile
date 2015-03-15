@@ -15,6 +15,7 @@ gem 'devise', '~> 3.4.1'
 gem 'paperclip', '~>4.2'
 gem 'aws-sdk', '~>2.0.3'
 gem 'masonry-rails', '~>0.2.4'
+gem 'font-awesome-rails', '~>4.3.0.0'
 
 
 group :development, :test do 
