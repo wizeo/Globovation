@@ -10,11 +10,6 @@
   <%= @project.description %>
 </p>
 
-<p>
-  <strong>Main img url:</strong>
-  <%= @project.main_img_url %>
-</p>
-
 <% if @project.user == current_user %>
 	<%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>
