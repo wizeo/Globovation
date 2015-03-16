@@ -14,12 +14,11 @@
                   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                 <% end %>
 
-                <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "****", class: "form-control" %>
+                <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "********", class: "form-control" %>
                 <i>*leave blank if you don't want to change it</i>  
 
                 <%= f.submit "Update", class: "btn btn-lg btn-primary btn-block" %>
                 <div>
-                  <%= link_to "Back", edit_user_password_path %>
                 </div>
               <% end %>  
             </section>
