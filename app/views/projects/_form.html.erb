@@ -2,7 +2,6 @@
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
       <ul>
       <% @project.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,20 +9,36 @@
       </ul>
     </div>
   <% end %>
+  <div class="row form-wrap" >
+    <div class="col-md-9 form-section">
+      <div class="col-md-3">
+        <p>Project image</p>
+      </div>
+      <div class="col-md-9 form-image">
+        <%= image_tag @project.image.url(:medium) %>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <span class="btn btn-primary btn-file">
+            Browse <%= f.file_field :image%>
+            </span>
+          </span>
+          <input type="text" class="form-control" disabled readonly>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div> 
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

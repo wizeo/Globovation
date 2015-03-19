@@ -1,3 +1,39 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//new project form css
+.form-wrap
+	background-color: #fff
+	border: 1px solid #e6e9ed
+	border-radius: 4px
+
+.form-section
+	background-color: #e6e9ed
+	margin: 20px
+	border-radius: 4px
+
+.btn-file
+	position: relative
+	overflow: hidden
+
+.btn-file input[type=file] 
+	position: absolute
+	top: 0
+	right: 0
+	min-width: 100%
+	min-height: 100%
+	font-size: 100px
+	text-align: right
+	filter: alpha(opacity=0)
+	opacity: 0
+	outline: none
+	background: white
+	cursor: inherit
+	display: block
+
+.form-wrap
+	.form-section
+		.form-image input[readonly] 
+			background-color: #fff !important
+			cursor: text !important
+			box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0)
+			:focus
+				outline: none
+				border: 1px solid #cccccc

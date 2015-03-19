@@ -1,5 +1,4 @@
-<div class="container">
-    <div class="row">
+    <div class="row sign-form">
         <div class="col-md-4"> </div>
         <div class="col-md-4">
             <h2 class="text-center login-title">Sign up</h2>
@@ -16,7 +15,7 @@
                   <% end %>
                 <% end %>
 
-                <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password", class: "form-control" %>
+                <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password", class: "form-control input-lg" %>
                 <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
                 <div>
                   Already have an account? <%= render "devise/shared/links" %>
@@ -26,7 +25,6 @@
         </div>
         <div class="col-md-4"> </div>
     </div>
-</div>
 
 
 
