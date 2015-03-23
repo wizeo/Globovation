@@ -12,6 +12,21 @@
   <%= @project.description %>
 </p>
 
+<p>
+  <strong>Blurb:</strong>
+  <%= @project.blurb %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @project.budget %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @project.location %>
+</p>
+
 <% if @project.user == current_user %>
 	<%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>
