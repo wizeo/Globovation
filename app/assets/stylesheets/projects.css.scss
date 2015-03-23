@@ -46,8 +46,9 @@
 	padding-right: 3px;
 }
 
-textarea[name="project[blurb]"] {
+textarea[name="project[blurb]"], textarea[name="project[description]"]  {
     resize: none;
+    overflow-x: hidden;
 }
 
 .input-group {
@@ -61,7 +62,6 @@ textarea[name="project[blurb]"] {
 .input-group-budget {
 	margin-top: 3%;
 }
-
 
 
 //image browse file button -->
@@ -103,4 +103,29 @@ textarea[name="project[blurb]"] {
 }
 // <--
 
+//customize Froala editor -->
+.froala-editor {
+	border: solid 1px #cccccc!important;	
+  border-top: solid 5px #cccccc!important;
+}
 
+.froala-wrapper {
+	border: solid 1px #cccccc!important;	
+}
+
+.drop-upload {
+	display: none!important;
+}
+
+#f-upload-div-1 {
+	display: none!important;
+}
+
+#f-image-list-1 {
+	margin-top: 8px!important;
+}
+
+.f-popup-line {
+border-top: solid 0px #ccc!important;
+}
+// <---

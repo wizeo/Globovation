@@ -9,7 +9,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @project.description %>
+  <%= raw(@project.description) %>
 </p>
 
 <p>
@@ -19,7 +19,7 @@
 
 <p>
   <strong>Budget:</strong>
-  <%= @project.budget %>
+  $<%= @project.budget %>
 </p>
 
 <p>

@@ -54,6 +54,7 @@ $(document).ready( function() {
 });
 
 
+// geoplugin for the location input (project form)
 var geourl = 'http://www.geoplugin.net/json.gp?jsoncallback=?';
 
 $(document).ready(function() {
@@ -65,4 +66,16 @@ $(document).ready(function() {
         $country.val(country_code);
     });
 });
+
+
+//froala text editor (wysiwyg)
+$(document).ready(function() {
+    $('textarea#edit').editable({
+      inlineMode: false,
+      plainPaste: true,
+      minHeight: 400,
+      buttons: ["bold", "italic", "underline", "strikeThrough", "fontFamily", "fontSize", "formatBlock", "blockStyle", "align", "insertOrderedList", "insertUnorderedList", "outdent", "indent", "createLink", "insertImage", "insertVideo", "insertHorizontalRule", "html" ]
+    })
+});
+
 

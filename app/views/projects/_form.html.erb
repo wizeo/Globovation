@@ -1,7 +1,9 @@
-<%= form_for @project, html: { multipart: true, class: "form-wrap" } do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+ 
+ <% if @project.errors.any? %>
+    <div id="" class= "alert alert-error alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
       <ul>
       <% @project.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -9,6 +11,12 @@
       </ul>
     </div>
   <% end %>
+
+<div class="page-title">
+  <h1 class="text-center">Edit your project!</h1>
+</div>
+
+<%= form_for @project, html: { multipart: true, class: "form-wrap" } do |f| %>
   <div class="row" >
     <div class="col-md-9 form-section form-section-first">
       <div class="col-md-4">
@@ -110,7 +118,7 @@
         <div class="project-sub-title pull left">
           <h4>Project location</h4>
           <small>
-            If there's a limitation on the cost of the solution, please specify.  
+            Where in the world this project will take place? 
           </small>
         </div>
       </div>
@@ -121,12 +129,27 @@
     <div class="col-md-3">
     </div>
   </div>
-   
-
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
+  <div class="row form-spacer">
+  </div>
+  <div class="row" >
+     <div class="col-md-9 form-section">
+      <div class="col-md-4">
+        <div class="project-sub-title pull left">
+          <h4>Project Description</h4>
+          <small>
+            The entire story behind yor project. Please provide as much information as you can abou the problem this project is addressing.    
+          </small>
+        </div>
+      </div>
+      <div class="col-md-8 input-vallign">
+        <%= f.text_area :description, placeholder: "Tell the story behind your project", type: "text", rows:"20", class: "form-control input-lg", id: "edit"%>
+      </div>
     </div>
+    <div class="col-md-3">
+    </div>
+  </div>          
+
+
     
     <div class="actions">
       <%= f.submit %>

@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    flash[:notice] = "Project was successfully updated."
+    flash[:notice] = "Project was successfully updated." if @project.save
     respond_with @project
   end
 
