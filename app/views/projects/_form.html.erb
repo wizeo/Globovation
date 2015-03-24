@@ -1,6 +1,10 @@
  
- <% if @project.errors.any? %>
-    <div id="" class= "alert alert-error alert-dismissible" role="alert">
+<%= form_for @project, html: { multipart: true, class: "form-wrap" } do |f| %>
+  <div class="row">
+    <div class="col-md-9 form-section form-section-first">
+
+  <% if @project.errors.any? %>
+    <div id="alert-margin" class= "alert alert-error alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -12,13 +16,6 @@
     </div>
   <% end %>
 
-<div class="page-title">
-  <h1 class="text-center">Edit your project!</h1>
-</div>
-
-<%= form_for @project, html: { multipart: true, class: "form-wrap" } do |f| %>
-  <div class="row" >
-    <div class="col-md-9 form-section form-section-first">
       <div class="col-md-4">
         <div class="project-sub-title pull left">
           <h4>Project image</h4>
@@ -46,7 +43,7 @@
   </div>
   <div class="row form-spacer">
   </div>
-  <div class="row" >
+  <div class="row">
      <div class="col-md-9 form-section">
       <div class="col-md-4">
         <div class="project-sub-title pull left">
@@ -90,7 +87,7 @@
   </div>          
   <div class="row form-spacer">
   </div>
-  <div class="row" >
+  <div class="row">
      <div class="col-md-9 form-section">
       <div class="col-md-4">
         <div class="project-sub-title pull left">
@@ -112,7 +109,7 @@
   </div>
   <div class="row form-spacer">
   </div>
-  <div class="row" >
+  <div class="row">
      <div class="col-md-9 form-section">
       <div class="col-md-4">
         <div class="project-sub-title pull left">
@@ -129,9 +126,8 @@
     <div class="col-md-3">
     </div>
   </div>
-  <div class="row form-spacer">
-  </div>
-  <div class="row" >
+  <div class="row form-spacer"></div>
+  <div class="row">
      <div class="col-md-9 form-section">
       <div class="col-md-4">
         <div class="project-sub-title pull left">
@@ -145,14 +141,19 @@
         <%= f.text_area :description, placeholder: "Tell the story behind your project", type: "text", rows:"20", class: "form-control input-lg", id: "edit"%>
       </div>
     </div>
-    <div class="col-md-3">
-    </div>
-  </div>          
-
-
-    
-    <div class="actions">
-      <%= f.submit %>
+    <div class="col-md-3"> </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">          
+      <div class="form-actions pull-left">
+        <% if @project.is_published %>
+          <%= f.submit "Update", class: "btn btn-primary btn-lg"%>
+          <%= f.submit "Unpublish", class: "btn btn-danger btn-lg"%>
+        <% else %>
+          <%= f.submit "Publish", class: "btn btn-primary btn-lg"%>
+          <%= f.submit "Save as a Draft", class: "btn btn-warning btn-lg" %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

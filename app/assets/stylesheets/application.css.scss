@@ -14,6 +14,18 @@ $navbar-default-link-color: #4d4d4f;
 $navbar-default-link-hover-color: #fff;
 $headings-font-weight: 400;
 $text-color: #555;
+$btn-font-weight: 400;
+$btn-success-color: #fff;
+$btn-success-bg: #8cc152;
+$btn-success-border: #8cc152;
+$btn-primary-bg: #3bafda;
+$btn-primary-border: #3bafda;
+$btn-default-color: #434a54;
+$btn-default-bg: #fff;
+$btn-default-border: #aab2bd;
+$btn-danger-color: #fff;
+$btn-danger-bg: #da4453;
+$btn-danger-border: #da4453;
 
 
 
@@ -46,9 +58,17 @@ $text-color: #555;
 	}
 }
 
+//btn customize -->
+
+.btn-lg {
+	letter-spacing: 2px!important;
+	border-radius: 5px!important;
+	padding: 10px 60px!important;
+}
+// <--
 
 
-//main content top margin
+//main content top margin -->
 .mt-header {
 	margin-top: 150px;
 }
@@ -91,10 +111,18 @@ $text-color: #555;
   border-color: #d6e9c6;
   text-align: left;
 }
+// <--
+
 
 //center X button in flash messages
 .alert {
 	.close {
 		margin-top: 0;
 	}
-} 
+}
+
+
+//margin-top alert message in prject form
+#alert-margin {
+	margin-top: 20px;
+}

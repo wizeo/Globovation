@@ -27,6 +27,15 @@
   <%= @project.location %>
 </p>
 
+<p>
+  <strong>is_published:</strong>
+  <% if @project.is_published %>
+        <p>True<p>
+  <% else %>
+        <p>False<p>
+  <% end %>
+</p>
+
 <% if @project.user == current_user %>
 	<%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>

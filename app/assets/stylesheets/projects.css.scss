@@ -111,6 +111,7 @@ textarea[name="project[blurb]"], textarea[name="project[description]"]  {
 
 .froala-wrapper {
 	border: solid 1px #cccccc!important;	
+	border-radius: 6px!important;
 }
 
 .drop-upload {
@@ -129,3 +130,7 @@ textarea[name="project[blurb]"], textarea[name="project[description]"]  {
 border-top: solid 0px #ccc!important;
 }
 // <---
+
+.form-actions {
+	padding: 10px 0px 20px 20px;
+}

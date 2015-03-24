@@ -24,12 +24,15 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
+    @project.is_published = true if published?
     flash[:notice] = "Project was successfully created." if @project.save
     respond_with @project
   end
 
   def update
     @project.update(project_params)
+    @project.is_published = true if published?
+    @project.is_published = nil if unpublished?
     flash[:notice] = "Project was successfully updated." if @project.save
     respond_with @project
   end
@@ -51,6 +54,14 @@ class ProjectsController < ApplicationController
     end  
 
     def project_params
-      params.require(:project).permit(:title, :description, :main_img_url, :image, :blurb, :budget, :published_at, :location)
+      params.require(:project).permit(:title, :description, :main_img_url, :image, :blurb, :budget, :is_published, :location)
+    end
+
+    def published?
+      params[:commit] == "Publish"
+    end
+
+    def unpublished?
+      params[:commit] == "Unpublish"
     end
 end

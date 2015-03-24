@@ -2,11 +2,10 @@
     <div class="row">
         <div class="col-md-4"> </div>
         <div class="col-md-4">
-            <h2 class="text-center login-title">Forgot your password?</h2>
             <section class="signup-form">
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: "signup" }) do |f| %>
   							<%= devise_error_messages! %>
-                <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+                <h3 class="text-center">Forgot your password?</h3>
                   <%= f.email_field :email, autofocus: true, placeholder: "Email", type: "email", class: "form-control input-lg" %>
               
                   <%= f.submit "Reset password", class: "btn btn-lg btn-primary btn-block" %>

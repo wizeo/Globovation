@@ -1,20 +1,19 @@
 <div class="row">
     <div class="col-md-4"> </div>
-    <div class="col-md-4">
-        <h2 class="text-center login-title">Change your password</h2>
-        <section class="signup-form">
-         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, role: "signup" }) do |f| %>
-          <%= devise_error_messages! %>
-          <%= f.hidden_field :reset_password_token %>
+    <div class="col-md-4">  
+      <section class="signup-form">
+       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, role: "signup" }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
 
-            <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
-            <%= f.password_field :password, autocomplete: "off", type: "New", placeholder: "New password", class: "form-control" %>
+          <h2 class="text-center">Change your password</h2>
+          <%= f.password_field :password, autocomplete: "off", type: "New", placeholder: "New password", class: "form-control" %>
 
-            <%= f.submit "Change my password", class: "btn btn-lg btn-primary btn-block" %>
-            <div>
-            </div>
-          <% end %>  
-        </section>
+          <%= f.submit "Change my password", class: "btn btn-lg btn-primary btn-block" %>
+          <div>
+          </div>
+        <% end %>  
+      </section>
     </div>
     <div class="col-md-4"> </div>
 </div>
