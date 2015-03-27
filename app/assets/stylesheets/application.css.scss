@@ -7,13 +7,19 @@
 
 //customize bootstrap
 $body-bg: rgb(241, 242, 246);
-$jumbotron-bg: #95a5a6;
+$jumbotron-bg: #F6BB42;
+$jumbotron-color: #fff;
 $navbar-default-bg: #4fc1e9;
 $navbar-height: 80px;
 $navbar-default-link-color: #4d4d4f;
 $navbar-default-link-hover-color: #fff;
 $headings-font-weight: 400;
 $text-color: #555;
+$brand-primary: #3bafda;
+$brand-warning: #f6bb42;
+$brand-success: #8cc152;
+$brand-danger: #da4453;
+$brand-default: #fff;
 $btn-font-weight: 400;
 $btn-success-color: #fff;
 $btn-success-bg: #8cc152;
@@ -26,6 +32,8 @@ $btn-default-border: #aab2bd;
 $btn-danger-color: #fff;
 $btn-danger-bg: #da4453;
 $btn-danger-border: #da4453;
+$btn-warning-bg: #f6bb42;
+$btn-warning-border: #f6bb42;
 
 
 
@@ -85,6 +93,7 @@ $btn-danger-border: #da4453;
 	//color: #b94a48;
 }
 
+//
 .alert-alert {
 	background-color: #f2838f;
   border: #ed5565;
@@ -93,6 +102,26 @@ $btn-danger-border: #da4453;
   text-align: left;
 }
 
+//blue
+.alert-info {
+	background-color: #7cd1ef;
+  border: #4fc1e9;
+  color: #31708f;
+  border-color: #bce8f1;
+  text-align: left;
+}
+
+//yellow
+.alert-warning {
+	background-color: #ffdd87;
+  border: #ffce54;
+  color: #8a6d3b;
+  border-color: #faebcc;
+  text-align: left;
+}
+
+
+//green
 .alert-success {
 	background-color: #b9df90;
   border: #a0d468;
@@ -104,6 +133,7 @@ $btn-danger-border: #da4453;
 	//color: #468847;
 }
 
+//green
 .alert-notice {
 	background-color: #b9df90;
   border: #a0d468;

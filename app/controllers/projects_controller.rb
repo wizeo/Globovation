@@ -25,22 +25,41 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(project_params)
     @project.is_published = true if published?
-    flash[:notice] = "Project was successfully created." if @project.save
+    @project.published_at = Time.zone.now if published?
+
+    @project.save 
+
+    flash[:info] = "Project was created and saved as draft." if draft?
+    flash[:success] = "Project was successfully created and published." if published?
+
     respond_with @project
   end
 
   def update
-    @project.update(project_params)
-    @project.is_published = true if published?
-    @project.is_published = nil if unpublished?
-    flash[:notice] = "Project was successfully updated." if @project.save
+
+    if unpublished?
+      @project.is_published = false 
+      @project.published_at = nil 
+    end
+
+    if published? 
+      @project.is_published = true
+      @project.published_at = Time.zone.now
+    end
+
+    @project.update(project_params) 
+    flash[:info] = "Project was updated and saved as draft." if draft?
+    flash[:info] = "Project was successfully unpublished." if unpublished?
+    flash[:info] = "Project was successfully published." if published?
+    flash[:info] = "Project was successfully updated." if updated?
+
     respond_with @project
   end
 
   def destroy
     @project.destroy
     flash[:notice] = "Project was successfully deleted."
-    respond_with @project
+    respond_with @projects
   end
 
   private
@@ -54,7 +73,7 @@ class ProjectsController < ApplicationController
     end  
 
     def project_params
-      params.require(:project).permit(:title, :description, :main_img_url, :image, :blurb, :budget, :is_published, :location)
+      params.require(:project).permit(:title, :description, :main_img_url, :image, :blurb, :budget, :is_published, :location, :published_at)
     end
 
     def published?
@@ -63,5 +82,13 @@ class ProjectsController < ApplicationController
 
     def unpublished?
       params[:commit] == "Unpublish"
+    end
+
+    def draft?
+      params[:commit] == "Save as a Draft"
+    end
+
+    def updated?
+      params[:commit] == "Update"
     end
 end

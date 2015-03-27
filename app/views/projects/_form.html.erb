@@ -1,156 +1,163 @@
- 
-<%= form_for @project, html: { multipart: true, class: "form-wrap" } do |f| %>
-  <div class="row">
-    <div class="col-md-9 form-section form-section-first">
-
-  <% if @project.errors.any? %>
-    <div id="alert-margin" class= "alert alert-error alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-      <ul>
-      <% @project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+ <%= form_for @project, html: { multipart: true, class: "form-wrap" } do |f| %>
+  <div class="row row-padder">
+    <div class="col-md-12 form-section form-section-first">
+      <% if @project.errors.any? %>
+        <div id="alert-margin" class= "alert alert-error alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <ul>
+          <% @project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-      <div class="col-md-4">
-        <div class="project-sub-title pull left">
-          <h4>Project image</h4>
-          <small>
-            This is the main image associate with the challenge you're trying to overcome! JPEG, PNG, GIF or BMP. 4:3 aspect ratio
-          </small>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Project image</h4>
+            <small>
+              This is the main image associate with the challenge you're trying to overcome! JPEG, PNG, GIF or BMP, At least 800px wide, 4:3 aspect ratio.
+            </small>
+          </div>
         </div>
-      </div>
-      <div class="col-md-8 form-main-image">
-        <div class="main-image-wrap">
-          <%= image_tag @project.image.url(:medium), class: "img-responsive center-block" %>
-        </div>
-        <div class="input-group">
-          <span class="input-group-btn">
-            <span class="btn btn-default btn-file">
-              <i class="fa fa-upload"></i> Browse <%= f.file_field :image%>
+        <div class="col-md-8 form-main-image">
+          <div class="main-image-wrap">
+            <%= image_tag @project.image.url(:large), class: "img-responsive center-block" %>
+          </div>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-default btn-file">
+                <i class="fa fa-upload"></i> Browse <%= f.file_field :image%>
+              </span>
             </span>
-          </span>
-          <input type="text" class="form-control" placeholder="<-- Click to upload an image" disabled readonly>
-        </div> 
-      </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-  </div>
-  <div class="row form-spacer">
-  </div>
-  <div class="row">
-     <div class="col-md-9 form-section">
-      <div class="col-md-4">
-        <div class="project-sub-title pull left">
-          <h4>Project title</h4>
-          <small>
-            Your project title should describe the problem you would like to solve. It should be simple, specific and no more than 60 charachters.   
-          </small>
+            <input type="text" class="form-control" placeholder="<-- Click to upload an image" disabled readonly>
+          </div> 
         </div>
       </div>
-      <div class="col-md-8 input-vallign">
-        <div class="char-counter pull-right">
-          <small> <span class="charscount1">60</span><span>/60</span></small>
-        </div>
-        <%= f.text_field :title, placeholder: "", type: "text", maxlength: "60", class: "form-control input-lg", id: "input1" %>
-      </div>
-    </div>
-    <div class="col-md-3">
     </div>
   </div>
-  <div class="row form-spacer">
-  </div>
-  <div class="row" >
-     <div class="col-md-9 form-section">
-      <div class="col-md-4">
-        <div class="project-sub-title pull left">
-          <h4>Short blurb</h4>
-          <small>
-            Your hort blurb should provide more infromation regarding the main idea or the necessity of your project. Up to 135 charachters.   
-          </small>
+
+  <div class="row form-spacer"></div>
+
+  <div class="row row-padder">
+     <div class="col-md-12 form-section">
+     <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Project title</h4>
+            <small>
+              Your project title should describe the problem you would like to solve. It should be simple, specific and no more than 60 charachters.   
+            </small>
+          </div>
         </div>
-      </div>
-      <div class="col-md-8 input-vallign">
-        <div class="char-counter pull-right">
-          <small> <span class="charscount2">135 </span> <span>/135</span></small>
+        <div class="col-md-8 input-vallign">
+          <div class="char-counter pull-right">
+            <small> <span class="charscount1">60</span><span>/60</span></small>
+          </div>
+          <%= f.text_field :title, placeholder: "", type: "text", maxlength: "60", class: "form-control input-lg", id: "input1" %>
         </div>
-        <%= f.text_area :blurb, placeholder: "", type: "text", maxlength: "135", rows:"3", class: "form-control input-lg", id: "input2" %>
       </div>
     </div>
-    <div class="col-md-3">
+  </div>
+
+  <div class="row form-spacer"></div>
+
+  <div class="row row-padder" >
+     <div class="col-md-12 form-section">
+      <div class="row" >
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Short blurb</h4>
+            <small>
+              Your hort blurb should provide more infromation regarding the main idea or the necessity of your project. Up to 135 charachters.   
+            </small>
+          </div>
+        </div>
+        <div class="col-md-8 input-vallign">
+          <div class="char-counter pull-right">
+            <small> <span class="charscount2">135 </span> <span>/135</span></small>
+          </div>
+          <%= f.text_area :blurb, placeholder: "", type: "text", maxlength: "135", rows:"3", class: "form-control input-lg", id: "input2" %>
+        </div>
+      </div>
     </div>
   </div>          
-  <div class="row form-spacer">
-  </div>
-  <div class="row">
-     <div class="col-md-9 form-section">
-      <div class="col-md-4">
-        <div class="project-sub-title pull left">
-          <h4>Project budget</h4>
-          <small>
-            If there's a limitation on the cost of the solution, please specify.  
-          </small>
-        </div>
-      </div>
-      <div class="col-md-8 input-vallign">
-        <div class="input-group input-group-budget">
-          <span class="input-group-addon">$</span>
-          <%= f.text_field :budget, placeholder: "", type: "text", maxlength: "60", class: "form-control input-lg", id: "input1" %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-  </div>
-  <div class="row form-spacer">
-  </div>
-  <div class="row">
-     <div class="col-md-9 form-section">
-      <div class="col-md-4">
-        <div class="project-sub-title pull left">
-          <h4>Project location</h4>
-          <small>
-            Where in the world this project will take place? 
-          </small>
-        </div>
-      </div>
-      <div class="col-md-8 input-vallign">
-        <%= f.select(:location, [["Country...", ""], ["Afghanistan", "AF"], ["Albania", "AL"], ["Algeria", "DZ"], ["American Samoa", "AS"], ["Andorra", "AD"], ["Angola", "AG"], ["Anguilla", "AI"], ["Antigua & Barbuda", "AG"], ["Argentina", "AR"], ["Armenia", "AA"], ["Aruba", "AW"], ["Australia", "AU"], ["Austria", "AT"], ["Azerbaijan", "AZ"], ["Bahamas", "BS"], ["Bahrain", "BH"], ["Bangladesh", "BD"], ["Barbados", "BB"], ["Belarus", "BY"], ["Belgium", "BE"], ["Belize", "BZ"], ["Benin", "BJ"], ["Bermuda", "BM"], ["Bhutan", "BT"], ["Bolivia", "BO"], ["Bonaire", "BL"], ["Bosnia & Herzegovina", "BA"], ["Botswana", "BW"], ["Brazil", "BR"], ["British Indian Ocean Ter", "BC"], ["Brunei", "BN"], ["Bulgaria", "BG"], ["Burkina Faso", "BF"], ["Burundi", "BI"], ["Cambodia", "KH"], ["Cameroon", "CM"], ["Canada", "CA"], ["Canary Islands", "IC"], ["Cape Verde", "CV"], ["Cayman Islands", "KY"], ["Central African Republic", "CF"], ["Chad", "TD"], ["Channel Islands", "CD"], ["Chile", "CL"], ["China", "CN"], ["Christmas Island", "CI"], ["Cocos Island", "CS"], ["Colombia", "CO"], ["Comoros", "CC"], ["Congo", "CG"], ["Cook Islands", "CK"], ["Costa Rica", "CR"], ["Cote D'Ivoire", "CT"], ["Croatia", "HR"], ["Cuba", "CU"], ["Curacao", "CB"], ["Cyprus", "CY"], ["Czech Republic", "CZ"], ["Denmark", "DK"], ["Djibouti", "DJ"], ["Dominica", "DM"], ["Dominican Republic", "DO"], ["East Timor", "TM"], ["Ecuador", "EC"], ["Egypt", "EG"], ["El Salvador", "SV"], ["Equatorial Guinea", "GQ"], ["Eritrea", "ER"], ["Estonia", "EE"], ["Ethiopia", "ET"], ["Falkland Islands", "FA"], ["Faroe Islands", "FO"], ["Fiji", "FJ"], ["Finland", "FI"], ["France", "FR"], ["French Guiana", "GF"], ["French Polynesia", "PF"], ["French Southern Ter", "FS"], ["Gabon", "GA"], ["Gambia", "GM"], ["Georgia", "GE"], ["Germany", "DE"], ["Ghana", "GH"], ["Gibraltar", "GI"], ["Great Britain", "GB"], ["Greece", "GR"], ["Greenland", "GL"], ["Grenada", "GD"], ["Guadeloupe", "GP"], ["Guam", "GU"], ["Guatemala", "GT"], ["Guinea", "GN"], ["Guyana", "GY"], ["Haiti", "HT"], ["Hawaii", "HW"], ["Honduras", "HN"], ["Hong Kong", "HK"], ["Hungary", "HU"], ["Iceland", "IS"], ["India", "IN"], ["Indonesia", "ID"], ["Iran", "IA"], ["Iraq", "IQ"], ["Ireland", "IR"], ["Isle of Man", "IM"], ["Israel", "IL"], ["Italy", "IT"], ["Jamaica", "JM"], ["Japan", "JP"], ["Jordan", "JO"], ["Kazakhstan", "KZ"], ["Kenya", "KE"], ["Kiribati", "KI"], ["Korea North", "NK"], ["Korea South", "KS"], ["Kuwait", "KW"], ["Kyrgyzstan", "KG"], ["Laos", "LA"], ["Latvia", "LV"], ["Lebanon", "LB"], ["Lesotho", "LS"], ["Liberia", "LR"], ["Libya", "LY"], ["Liechtenstein", "LI"], ["Lithuania", "LT"], ["Luxembourg", "LU"], ["Macau", "MO"], [ "Macedonia", "MK"], ["Madagascar", "MG"], ["Malaysia", "MY"], ["Malawi", "MW"], ["Maldives", "MV"], ["Mali", "ML"], ["Malta", "MT"], ["Marshall Islands", "MH"], ["Martinique", "MQ"], ["Mauritania", "MR"], ["Mauritius", "MU"], ["Mayotte", "ME"], [ "Mexico", "MX"], ["Midway Islands", "MI"], ["Moldova", "MD"], ["Monaco", "MC"], ["Mongolia", "MN"], ["Montserrat", "MS"], ["Morocco", "MA"], ["Mozambique", "MZ"], ["Myanmar", "MM"], ["Nambia", "NA"], ["Nauru", "NU"], ["Nepal", "NP"], ["Netherland Antilles", "AN"], ["Netherlands (Holland, Europe)", "NL"], ["Nevis", "NV"], ["New Caledonia", "NC"], ["New Zealand", "NZ"], ["Nicaragua", "NI"], ["Niger", "NE"], ["Nigeria", "NG"], ["Niue", "NW"], ["Norfolk Island", "NF"], ["Norway", "NO"], ["Oman", "OM"], ["Pakistan", "PK"], ["Palau Island", "PW"], ["Palestine", "PS"], ["Panama", "PA"], ["Papua New Guinea", "PG"], [ "Paraguay", "PY"], ["Peru", "PE"], ["Philippines", "PH"], ["Pitcairn Island", "PO"], ["Poland", "PL"], ["Portugal", "PT"], ["Puerto Rico", "PR"], ["Qatar", "QA"], ["Republic of Montenegro", "ME"], ["Republic of Serbia", "RS"], ["Reunion", "RE"], ["Romania", "RO"], ["Russia", "RU"], ["Rwanda", "RW"], ["St Barthelemy", "NT"], ["St Eustatius", "EU"], ["St Helena", "HE"], ["St Kitts-Nevis", "KN"], ["St Lucia", "LC"], ["St Maarten", "MB"], ["St Pierre & Miquelon", "PM"], ["St Vincent & Grenadines", "VC"], ["Saipan", "SP"], ["Samoa", "SO"], ["Samoa American", "AS"], ["San Marino", "SM"], ["Sao Tome & Principe", "ST"], ["Saudi Arabia", "SA"], ["Senegal", "SN"], ["Serbia", "RS"], ["Seychelles", "SC"], ["Sierra Leone", "SL"], ["Singapore", "SG"], ["Slovakia", "SK"], ["Slovenia", "SI"], ["Solomon Islands", "SB"], ["Somalia", "OI"], ["South Africa", "ZA"], ["Spain", "ES"], ["Sri Lanka", "LK"], ["Sudan", "SD"], ["Suriname", "SR"], ["Swaziland", "SZ"], ["Sweden", "SE"], ["Switzerland", "CH"], ["Syria", "SY"], ["Tahiti", "TA"], ["Taiwan", "TW"], ["Tajikistan", "TJ"], ["Tanzania", "TZ"], ["Thailand", "TH"], ["Togo", "TG"], ["Tokelau", "TK"], ["Tonga", "TO"], ["Trinidad & Tobago", "TT"], ["Tunisia", "TN"], ["Turkey", "TR"], ["Turkmenistan", "TU"], ["Turks & Caicos Is", "TC"], [ "Tuvalu", "TV"], ["Uganda", "UG"], ["Ukraine", "UA"], ["United Arab Emirates", "AE"], ["United Kingdom", "GB"], ["United States of America", "US"], ["Uruguay", "UY"], ["Uzbekistan", "UZ"], ["Vanuatu", "VU"], ["Vatican City State", "VS"], ["Venezuela", "VE"], ["Vietnam", "VN"], ["Virgin Islands (Brit)", "VB"], ["Virgin Islands (USA)", "VA"], ["Wake Island", "WK"], ["Wallis & Futana Is", "WF"], ["Yemen", "YE"], ["Zaire", "ZR"], ["Zambia", "ZM"], ["Zimbabwe", "ZW"]], {}, { :class => 'form-control input-lg', :id => 'country' }) %>
-      </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-  </div>
+
   <div class="row form-spacer"></div>
-  <div class="row">
-     <div class="col-md-9 form-section">
-      <div class="col-md-4">
-        <div class="project-sub-title pull left">
-          <h4>Project Description</h4>
-          <small>
-            The entire story behind yor project. Please provide as much information as you can abou the problem this project is addressing.    
-          </small>
+
+  <div class="row row-padder">
+     <div class="col-md-12 form-section">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Project budget</h4>
+            <small>
+              If there's a limitation on the cost of the solution, please specify.  
+            </small>
+          </div>
+        </div>
+        <div class="col-md-4 input-vallign">
+          <div class="input-group input-group-budget">
+            <span class="input-group-addon">$</span>
+            <%= f.text_field :budget, placeholder: "", type: "text", maxlength: "60", class: "form-control input-lg", id: "input1" %>
+          </div>
+        </div>
+        <div class="col-md-4">
         </div>
       </div>
-      <div class="col-md-8 input-vallign">
-        <%= f.text_area :description, placeholder: "Tell the story behind your project", type: "text", rows:"20", class: "form-control input-lg", id: "edit"%>
+    </div>
+  </div>
+
+  <div class="row form-spacer"></div>
+
+  <div class="row row-padder">
+     <div class="col-md-12 form-section">
+     <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Project location</h4>
+            <small>
+              Where in the world this project will take place? 
+            </small>
+          </div>
+        </div>
+        <div class="col-md-8 input-vallign">
+          <%= f.select(:location, [["Country...", ""], ["Afghanistan", "Afghanistan"], ["Albania", "Albania"], ["Algeria", "Algeria"], ["American Samoa", "American Samoa"], ["Andorra", "Andorra"], ["Angola", "Angola"], ["Anguilla", "Anguilla"], ["Antigua & Barbuda", "Antigua & Barbuda"], ["Argentina", "Argentina"], ["Armenia", "Armenia"], ["Aruba", "Aruba"], ["Australia", "Australia"], ["Austria", "Austria"], ["Azerbaijan", "Azerbaijan"], ["Bahamas", "Bahamas"], ["Bahrain", "Bahrain"], ["Bangladesh", "Bangladesh"], ["Barbados", "Barbados"], ["Belarus", "Belarus"], ["Belgium", "Belgium"], ["Belize", "Belize"], ["Benin", "Benin"], ["Bermuda", "Bermuda"], ["Bhutan", "Bhutan"], ["Bolivia", "Bolivia"], ["Bonaire", "Bonaire"], ["Bosnia & Herzegovina", "Bosnia & Herzegovina"], ["Botswana", "Botswana"], ["Brazil", "Brazil"], ["British Indian Ocean Ter", "BC"], ["Brunei", "BN"], ["Bulgaria", "BG"], ["Burkina Faso", "BF"], ["Burundi", "BI"], ["Cambodia", "KH"], ["Cameroon", "CM"], ["Canada", "CA"], ["Canary Islands", "IC"], ["Cape Verde", "CV"], ["Cayman Islands", "KY"], ["Central African Republic", "CF"], ["Chad", "TD"], ["Channel Islands", "CD"], ["Chile", "CL"], ["China", "CN"], ["Christmas Island", "CI"], ["Cocos Island", "CS"], ["Colombia", "CO"], ["Comoros", "CC"], ["Congo", "CG"], ["Cook Islands", "CK"], ["Costa Rica", "CR"], ["Cote D'Ivoire", "CT"], ["Croatia", "HR"], ["Cuba", "CU"], ["Curacao", "CB"], ["Cyprus", "CY"], ["Czech Republic", "CZ"], ["Denmark", "DK"], ["Djibouti", "DJ"], ["Dominica", "DM"], ["Dominican Republic", "DO"], ["East Timor", "TM"], ["Ecuador", "EC"], ["Egypt", "EG"], ["El Salvador", "SV"], ["Equatorial Guinea", "GQ"], ["Eritrea", "ER"], ["Estonia", "EE"], ["Ethiopia", "ET"], ["Falkland Islands", "FA"], ["Faroe Islands", "FO"], ["Fiji", "FJ"], ["Finland", "FI"], ["France", "FR"], ["French Guiana", "GF"], ["French Polynesia", "PF"], ["French Southern Ter", "FS"], ["Gabon", "GA"], ["Gambia", "GM"], ["Georgia", "GE"], ["Germany", "DE"], ["Ghana", "GH"], ["Gibraltar", "GI"], ["Great Britain", "GB"], ["Greece", "GR"], ["Greenland", "GL"], ["Grenada", "GD"], ["Guadeloupe", "GP"], ["Guam", "GU"], ["Guatemala", "GT"], ["Guinea", "GN"], ["Guyana", "GY"], ["Haiti", "HT"], ["Hawaii", "HW"], ["Honduras", "HN"], ["Hong Kong", "HK"], ["Hungary", "HU"], ["Iceland", "IS"], ["India", "IN"], ["Indonesia", "ID"], ["Iran", "IA"], ["Iraq", "IQ"], ["Ireland", "IR"], ["Isle of Man", "IM"], ["Israel", "Israel"], ["Italy", "IT"], ["Jamaica", "JM"], ["Japan", "JP"], ["Jordan", "JO"], ["Kazakhstan", "KZ"], ["Kenya", "KE"], ["Kiribati", "KI"], ["Korea North", "NK"], ["Korea South", "KS"], ["Kuwait", "KW"], ["Kyrgyzstan", "KG"], ["Laos", "LA"], ["Latvia", "LV"], ["Lebanon", "LB"], ["Lesotho", "LS"], ["Liberia", "LR"], ["Libya", "LY"], ["Liechtenstein", "LI"], ["Lithuania", "LT"], ["Luxembourg", "LU"], ["Macau", "MO"], [ "Macedonia", "MK"], ["Madagascar", "MG"], ["Malaysia", "MY"], ["Malawi", "MW"], ["Maldives", "MV"], ["Mali", "ML"], ["Malta", "MT"], ["Marshall Islands", "MH"], ["Martinique", "MQ"], ["Mauritania", "MR"], ["Mauritius", "MU"], ["Mayotte", "ME"], [ "Mexico", "MX"], ["Midway Islands", "MI"], ["Moldova", "MD"], ["Monaco", "MC"], ["Mongolia", "MN"], ["Montserrat", "MS"], ["Morocco", "MA"], ["Mozambique", "MZ"], ["Myanmar", "MM"], ["Nambia", "NA"], ["Nauru", "NU"], ["Nepal", "NP"], ["Netherland Antilles", "AN"], ["Netherlands (Holland, Europe)", "NL"], ["Nevis", "NV"], ["New Caledonia", "NC"], ["New Zealand", "NZ"], ["Nicaragua", "NI"], ["Niger", "NE"], ["Nigeria", "NG"], ["Niue", "NW"], ["Norfolk Island", "NF"], ["Norway", "NO"], ["Oman", "OM"], ["Pakistan", "PK"], ["Palau Island", "PW"], ["Palestine", "PS"], ["Panama", "PA"], ["Papua New Guinea", "PG"], [ "Paraguay", "PY"], ["Peru", "PE"], ["Philippines", "PH"], ["Pitcairn Island", "PO"], ["Poland", "PL"], ["Portugal", "PT"], ["Puerto Rico", "PR"], ["Qatar", "QA"], ["Republic of Montenegro", "ME"], ["Republic of Serbia", "RS"], ["Reunion", "RE"], ["Romania", "RO"], ["Russia", "RU"], ["Rwanda", "RW"], ["St Barthelemy", "NT"], ["St Eustatius", "EU"], ["St Helena", "HE"], ["St Kitts-Nevis", "KN"], ["St Lucia", "LC"], ["St Maarten", "MB"], ["St Pierre & Miquelon", "PM"], ["St Vincent & Grenadines", "VC"], ["Saipan", "SP"], ["Samoa", "SO"], ["Samoa American", "AS"], ["San Marino", "SM"], ["Sao Tome & Principe", "ST"], ["Saudi Arabia", "SA"], ["Senegal", "SN"], ["Serbia", "RS"], ["Seychelles", "SC"], ["Sierra Leone", "SL"], ["Singapore", "SG"], ["Slovakia", "SK"], ["Slovenia", "SI"], ["Solomon Islands", "SB"], ["Somalia", "OI"], ["South Africa", "ZA"], ["Spain", "ES"], ["Sri Lanka", "LK"], ["Sudan", "SD"], ["Suriname", "SR"], ["Swaziland", "SZ"], ["Sweden", "SE"], ["Switzerland", "CH"], ["Syria", "SY"], ["Tahiti", "TA"], ["Taiwan", "TW"], ["Tajikistan", "TJ"], ["Tanzania", "TZ"], ["Thailand", "TH"], ["Togo", "TG"], ["Tokelau", "TK"], ["Tonga", "TO"], ["Trinidad & Tobago", "TT"], ["Tunisia", "TN"], ["Turkey", "TR"], ["Turkmenistan", "TU"], ["Turks & Caicos Is", "TC"], [ "Tuvalu", "TV"], ["Uganda", "UG"], ["Ukraine", "UA"], ["United Arab Emirates", "AE"], ["United Kingdom", "GB"], ["United States of America", "USA"], ["Uruguay", "UY"], ["Uzbekistan", "UZ"], ["Vanuatu", "VU"], ["Vatican City State", "VS"], ["Venezuela", "VE"], ["Vietnam", "VN"], ["Virgin Islands (Brit)", "VB"], ["Virgin Islands (USA)", "VA"], ["Wake Island", "WK"], ["Wallis & Futana Is", "WF"], ["Yemen", "YE"], ["Zaire", "ZR"], ["Zambia", "ZM"], ["Zimbabwe", "ZW"]], {}, { :class => 'form-control input-lg', :id => 'country' }) %>
+        </div>
       </div>
     </div>
-    <div class="col-md-3"> </div>
   </div>
+
+  <div class="row form-spacer"></div>
+
+  <div class="row row-padder">
+     <div class="col-md-12 form-section">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Project Description</h4>
+            <small>
+              The entire story behind yor project. Please provide as much information as you can abou the problem this project is addressing.    
+            </small>
+          </div>
+        </div>
+        <div class="col-md-8 input-vallign">
+          <%= f.text_area :description, placeholder: "Tell the story behind your project", type: "text", rows:"20", class: "form-control input-lg", id: "edit"%>
+        </div>
+      </div>
+    </div>
+
   <div class="row">
     <div class="col-md-12">          
       <div class="form-actions pull-left">
         <% if @project.is_published %>
-          <%= f.submit "Update", class: "btn btn-primary btn-lg"%>
-          <%= f.submit "Unpublish", class: "btn btn-danger btn-lg"%>
+          <%= f.submit "Update", class: "btn btn-success btn-lg"%>
+          <%= f.submit "Unpublish", class: "btn btn-warning btn-lg"%>
         <% else %>
-          <%= f.submit "Publish", class: "btn btn-primary btn-lg"%>
+          <%= f.submit "Publish", class: "btn btn-success btn-lg"%>
           <%= f.submit "Save as a Draft", class: "btn btn-warning btn-lg" %>
         <% end %>
       </div>

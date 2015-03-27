@@ -59,7 +59,7 @@ var geourl = 'http://www.geoplugin.net/json.gp?jsoncallback=?';
 
 $(document).ready(function() {
     $.getJSON(geourl).success(function(data) {
-        var country_code = data.geoplugin_countryCode;
+        var country_code = data.geoplugin_countryName;
         var $country = $('#country');
         $country.find('option[value="' + country_code + '"]').prependTo($country);
         $country.find('option[value=""]').text('--------------');

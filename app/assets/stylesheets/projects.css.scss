@@ -12,13 +12,21 @@
 
 .form-section {
 	background-color: #e6e9ed;
-	margin: 20px 35px 10px 35px;
 	border-radius: 4px;
 	padding-bottom: 20px;
 }
 
 .form-section-first {
-	margin-top: 25px;
+	margin-top: 30px;
+}
+
+.form-spacer {
+	height: 20px;
+}
+
+.row-padder {
+	padding-right: 2.5em;
+	padding-left: 2.5em;
 }
 
 .project-sub-title {
@@ -111,7 +119,8 @@ textarea[name="project[blurb]"], textarea[name="project[description]"]  {
 
 .froala-wrapper {
 	border: solid 1px #cccccc!important;	
-	border-radius: 6px!important;
+	border-bottom-right-radius: 6px!important;
+	border-bottom-left-radius: 6px!important;
 }
 
 .drop-upload {

@@ -1,43 +1,71 @@
-<p><%= link_to 'Back', projects_path %></p>
+<div id="show-page">
+  <div class="row">
+    <% if @project.user == current_user %>
+      <div class="col-md-12">
+        <%= link_to 'Edit Your Project', edit_project_path(@project), class: "btn btn-success btn-lg" %>
+      </div>
+    <% end %>
 
-<%= image_tag @project.image.url(:medium) %>
+    <div class="col-md-12" id="show-title">
+      <h1> <%= @project.title %>
+        <% if !@project.is_published %>
+          <span class="label label-warning">Draft</span> 
+        <% end %> 
+      </h1>
+      <h4> Published by: <%= @project.user.name %> </h4> 
+    </div> 
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="main-image-wraper">
+        <div class="main-image-show" style="background-image: url('<%= @project.image.url(:large)%>')"> </div> 
+      </div>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+      <div class="project-main-info">
+        <h3>The project in a sentence:<br/>
+          <small><%= @project.blurb %></small>
+        </h3>
+        <% if @project.budget != nil %>
+          <h3>Project Budget:<br/>
+            <small> $<%= @project.budget %> </small>
+          </h3>
+        <% end %>
+         <h3>Located in:<br/>
+          <small> <%= raw(@project.location) %> </small>
+        </h3>
+         <h3>Pulished:
+            <% if !@project.is_published %>
+              <span class="label label-warning">Unpublished</span> 
+            <% end %>
+            <br/> 
+            <small> <%= @project.published_at.strftime('%a, %b %d %Y %H:%M%p (%Z)') %> </small>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+   <div class="col-md-12">
+    <hr class="hr-divider">
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="project-story-wraper">
+        <div class="project-story-text">
+          <h3>The full story behind the project <br/>
+            <small>  <%= raw(@project.description) %> </small>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>  
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= raw(@project.description) %>
-</p>
 
-<p>
-  <strong>Blurb:</strong>
-  <%= @project.blurb %>
-</p>
 
-<p>
-  <strong>Budget:</strong>
-  $<%= @project.budget %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @project.location %>
-</p>
-
-<p>
-  <strong>is_published:</strong>
-  <% if @project.is_published %>
-        <p>True<p>
-  <% else %>
-        <p>False<p>
-  <% end %>
-</p>
-
-<% if @project.user == current_user %>
-	<%= link_to 'Edit', edit_project_path(@project) %> |
-<% end %>
 
 

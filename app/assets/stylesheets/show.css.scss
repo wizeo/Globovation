@@ -1,0 +1,30 @@
+//project show page
+
+#show-page {
+	.label {
+		  font-size: 12px;
+			font-weight: 500;
+			letter-spacing: 1px;
+			vertical-align: 4px;
+	}
+}
+
+.main-image-wraper {
+	border: solid 1px #fff;
+	height: 400px;
+}
+
+.main-image-show {
+	overflow: hidden;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+}
+
+.hr-divider {
+	  border-top: 1px solid #aab2bd;
+	  margin-top: 35px;
+}
