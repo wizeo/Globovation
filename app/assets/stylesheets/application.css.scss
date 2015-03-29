@@ -66,12 +66,31 @@ $btn-warning-border: #f6bb42;
 	}
 }
 
+.navbar-default {
+	.navbar-toggle {
+		border-color: #4d4d4f!important;
+		.icon-bar {
+			background-color: #4d4d4f!important;
+		}
+	}
+}
+
+.navbar-default {
+	.navbar-toggle:hover {
+			background-color: #32b7e5!important;
+		}
+}
+
 //btn customize -->
 
 .btn-lg {
 	letter-spacing: 2px!important;
 	border-radius: 5px!important;
-	padding: 10px 60px!important;
+	//padding: 10px 60px!important;
+}
+
+.btn-width-100 {
+	width: 100%;
 }
 // <--
 

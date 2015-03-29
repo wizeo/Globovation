@@ -138,6 +138,14 @@ textarea[name="project[blurb]"], textarea[name="project[description]"]  {
 .f-popup-line {
 border-top: solid 0px #ccc!important;
 }
+
+.fr-bttn:hover {
+	background-color: #4fc1e9!important;
+}
+
+.froala-popup button.fr-p-bttn.f-ok {
+	background-color: #4fc1e9!important;
+}
 // <---
 
 .form-actions {
