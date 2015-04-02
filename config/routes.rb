@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :projects
+  
+    resources :solutions
+    resources :projects do
+      resources :solutions
+    end
+
+
 
   devise_for :users, controllers: {registrations: 'registrations'}
   

@@ -81,16 +81,17 @@
     <div class="col-md-4">
       <div class="project-solution-wraper">
         <div class="solution-button">
-           <%= button_tag(type: 'submit', class: "btn btn-warning btn-lg btn-width-100") do %>
-              <i class="fa fa-lightbulb-o"></i> Add your solution 
-            <% end %>
+          <%= link_to raw('<i class="fa fa-lightbulb-o"></i> Add your solution'), new_project_solution_path(@project), class: "btn btn-warning btn-lg btn-width-100" %></li>
           <hr>
         </div>
         <div class="solutio-body"> 
-          <div class="well">Solution 1</div>
-          <div class="well">Solution 2</div>
-          <div class="well">Solution 3</div>
-          <div class="well">Solution 4</div>
+          <% @solutions.where(:project_id => @project).each  do |solution| %>
+            <div class="well">
+              <%= solution.user.name %> <br/>
+              <%= solution.project_id %> <br/>
+              <%= solution.title %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

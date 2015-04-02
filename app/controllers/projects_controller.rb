@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @solutions = Solution.all
     respond_with @project
   end
 

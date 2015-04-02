@@ -5,7 +5,7 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, role: "signup" }) do |f| %>
             <%= devise_error_messages! %>
             <h2 class="text-center login-title">Edit <%= resource_name.to_s.humanize %></h2>
-            <%= f.text_field :name, autofocus: true, placeholder: "Name", type: "name", class: "form-control input-lg" %>
+            <%= f.text_field :name, autofocus: "true", placeholder: "Name", type: "name", class: "form-control input-lg" %>
             <%= f.email_field :email, placeholder: "Email", type: "email", class: "form-control input-lg" %>
            
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
