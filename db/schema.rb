@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401182734) do
+ActiveRecord::Schema.define(version: 20150402161602) do
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20150401182734) do
     t.string   "location"
     t.boolean  "is_published"
     t.datetime "published_at"
+    t.string   "update1"
+    t.string   "update2"
+    t.string   "update3"
+    t.string   "update4"
+    t.string   "update5"
+    t.string   "update6"
+    t.string   "update7"
+    t.string   "update8"
+    t.string   "update9"
+    t.string   "update10"
+    t.string   "update11"
+    t.string   "update12"
+    t.string   "update13"
+    t.string   "update14"
+    t.string   "update15"
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"

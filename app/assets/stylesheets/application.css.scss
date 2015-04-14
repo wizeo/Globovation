@@ -45,11 +45,12 @@ $btn-warning-border: #f6bb42;
 //customize css
 
 
-//navbar-header
+//navbar-header -->
 
 .navbar-header {
 	.navbar-brand {
-	padding: 8px 15px;
+		padding: 15px 15px;
+		height: 90px;
 	}
 }
 
@@ -57,6 +58,7 @@ $btn-warning-border: #f6bb42;
  	li {
 		font-size: 15px!important;
 		letter-spacing: 1px;
+		margin-top: 5px;
 	}
 }
 
@@ -66,9 +68,11 @@ $btn-warning-border: #f6bb42;
 	}
 }
 
+
 .navbar-default {
 	.navbar-toggle {
 		border-color: #4d4d4f!important;
+		margin-top: 28px!important;
 		.icon-bar {
 			background-color: #4d4d4f!important;
 		}
@@ -76,10 +80,30 @@ $btn-warning-border: #f6bb42;
 }
 
 .navbar-default {
-	.navbar-toggle:hover {
-			background-color: #32b7e5!important;
+	.navbar-toggle:hover  {
+		background-color: #32b7e5!important;
+	}
+	.navbar-toggle:focus {
+		background-color: #32b7e5!important;
+	}
+}
+
+a {
+		.gravatar {
+			max-width: 30px!important;
 		}
 }
+
+@media (min-width: 768px) {
+	#new-project {
+		a {
+			padding-bottom: 35px;
+			border-radius: 5px;
+		}
+	}
+}
+//<--
+
 
 //btn customize -->
 

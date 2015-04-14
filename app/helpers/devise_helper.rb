@@ -12,4 +12,12 @@ module DeviseHelper
 
     html.html_safe
   end
+
+  def gravatar_for(user)
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    default_url = "http://globovation.s3.amazonaws.com/img/pink_gravatar_default.png"
+    gravatar_url = "http://gravatar.com/avatar/#{gravatar_id}.png?d=#{CGI.escape(default_url)}"
+    image_tag(gravatar_url, alt: user.name, class: "gravatar")
+  end
+
 end
