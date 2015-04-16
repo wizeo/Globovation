@@ -1,36 +1,94 @@
-<%= form_for @solution do |f| %>
-  <% if @solution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@solution.errors.count, "error") %> prohibited this solution from being saved:</h2>
-
-      <ul>
-      <% @solution.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+ <%= form_for @solution, html: { multipart: true, class: "form-wrap" } do |f| %>
+  <div class="row row-padder">
+    <div class="col-md-12 form-section form-section-first">
+      <% if @solution.errors.any? %>
+        <div id="alert-margin" class= "alert alert-error alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <ul>
+          <% @solution.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
     </div>
+  </div>
+
+   <div class="row row-padder">
+     <div class="col-md-12 form-section">
+     <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Solution title</h4>
+            <small>
+              Your solution title should be simple, informative and no more than 60 charachters.   
+            </small>
+          </div>
+        </div>
+        <div class="col-md-8 input-vallign">
+          <div class="char-counter pull-right">
+            <small> <span class="charscount3">60</span><span>/60</span></small>
+          </div>
+          <%= f.text_field :title, placeholder: "", type: "text", maxlength: "60", class: "form-control input-lg", id: "input3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-spacer"></div>
+
+  <div class="row row-padder" >
+     <div class="col-md-12 form-section">
+      <div class="row" >
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Short blurb</h4>
+            <small>
+             Your short blurb should provide more infromation regarding the main idea behind your solution. Up to 135 charachters.     
+            </small>
+          </div>
+        </div>
+        <div class="col-md-8 input-vallign">
+          <div class="char-counter pull-right">
+            <small> <span class="charscount4">135 </span> <span>/135</span></small>
+          </div>
+          <%= f.text_area :blurb, placeholder: "", type: "text", maxlength: "135", rows:"3", class: "form-control input-lg", id: "input4" %>
+        </div>
+      </div>
+    </div>
+  </div>          
+ 
+  <div class="row form-spacer"></div>
+
+  <div class="row row-padder">
+     <div class="col-md-12 form-section">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="project-sub-title pull left">
+            <h4>Solution Description</h4>
+            <small>
+              The entire story behind your solution. Please provide as much information as you can about the suggested solution.
+            </small>
+          </div>
+        </div>
+        <div class="col-md-8 input-vallign">
+          <%= f.text_area :description, placeholder: "Tell the story behind your project", type: "text", rows:"20", class: "form-control input-lg", id: "edit"%>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <% if @solution.new_record? %>
+    <%= f.hidden_field :project_id, :value => @project %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-
-  <%= f.hidden_field :project_id, :value => @project %>
-
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :votes %><br>
-    <%= f.number_field :votes %>
-  </div>
-  <div class="field">
-    <%= f.label :admin_approval %><br>
-    <%= f.check_box :admin_approval %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-md-12">          
+      <div class="form-actions pull-left">
+          <%= f.submit "Publish", class: "btn btn-success btn-lg"%>
+      </div>
+    </div>
   </div>
 <% end %>

@@ -1,4 +1,4 @@
-<div id="show-page">
+<div id="project-show-page">
   <div class="row">
     <% if @project.user == current_user %>
       <div class="col-md-12">
@@ -6,16 +6,16 @@
       </div>
     <% end %>
 
-    <div class="col-md-12" id="show-title">
+    <div class="col-md-12 proj-show-title">
       <h1> <%= @project.title %>
         <% if !@project.is_published %>
           <span class="label label-warning">Draft</span> 
         <% end %> 
       </h1>
-      <h4> Published by: <%= @project.user.name %> </h4> 
+      <h4><%= gravatar_for(@project.user) %> <%= @project.user.name %> </h4> 
     </div> 
   </div>
-  <div class="row">
+  <div class="row"> 
     <div class="col-md-7">
       <div class="main-image-wraper">
         <div class="main-image-show" style="background-image: url('<%= @project.image.url(:large)%>')"> </div> 
@@ -59,10 +59,7 @@
             <a data-toggle="tab" href="#sectionA">Story</a>
           </li>
           <li>
-            <a data-toggle="tab" href="#sectionB">Updates</a>
-          </li>
-          <li>
-            <a data-toggle="tab" href="#sectionC">Comments</a>
+            <a data-toggle="tab" href="#sectionB">Comments</a>
           </li>
         </ul>
         <div class="tab-content">
@@ -70,9 +67,6 @@
               <section>  <%= raw(@project.description) %> </section>
           </div>
           <div id="sectionB" class="tab-pane fade">
-              <section class="lead">In this section the owner of the project will add information and updates regarding his project</section>
-          </div>
-          <div id="sectionC" class="tab-pane fade">
               <section>Comments interface...</section>
           </div>
         </div>
@@ -81,16 +75,36 @@
     <div class="col-md-4">
       <div class="project-solution-wraper">
         <div class="solution-button">
-          <%= link_to raw('<i class="fa fa-lightbulb-o"></i> Add your solution'), new_project_solution_path(@project), class: "btn btn-warning btn-lg btn-width-100" %></li>
-          <hr>
+          <%= link_to raw('<i class="fa fa-lightbulb-o"></i> Post your solution'), new_project_solution_path(@project), class: "btn btn-warning btn-lg btn-width-100" %></li>
         </div>
-        <div class="solutio-body"> 
-          <% @solutions.where(:project_id => @project).each  do |solution| %>
-            <div class="well">
-              <%= solution.user.name %> <br/>
-              <%= solution.project_id %> <br/>
-              <%= solution.title %>
-            </div>
+        <div class="solutio-body">
+          <% if @solutions.where(:project_id => @project).present? %> 
+            <% @solutions.where(:project_id => @project).each  do |solution| %>
+              <%= link_to solution do %>
+                <div class="well">
+                  <div class="media">
+                    <div class="media-left">
+                      <%= gravatar_for(solution.user) %>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading"> <%= solution.user.name %> <br/>
+                        <small class="media-header"> <%= time_ago_in_words(solution.created_at)%> ago </small>
+                        <br/>
+                        <br/>
+                        <small class="solution-quote"><i class="fa fa-quote-left"></i> <%= solution.title %> <i class="fa fa-quote-right"></i></small>
+                      </h4>
+                    </div>
+                    <% if solution.user == current_user %>
+                      <div class="solution-edit">
+                        <%= link_to 'Edit Your Solution', edit_solution_path(solution), class: 'btn btn-success btn-xs' %>
+                      </div>
+                    <% end %>
+                  </div>              
+                </div>
+              <% end %>
+            <% end %>
+          <% else %>
+            <p class="lead"> Be the first to post a solution! </p>
           <% end %>
         </div>
       </div>

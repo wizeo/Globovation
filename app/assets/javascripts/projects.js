@@ -26,6 +26,18 @@ $(document).ready(function() {
     var length = maxLength-length;
     $('.charscount2').text(length);
   });
+   $('#input3').keyup(function() {
+    var maxLength = parseInt($(this).attr('maxlength'));  ;
+    var length = $(this).val().length;
+    var length = maxLength-length;
+    $('.charscount3').text(length);
+  });
+   $('#input4').keyup(function() {
+    var maxLength = parseInt($(this).attr('maxlength'));  ;
+    var length = $(this).val().length;
+    var length = maxLength-length;
+    $('.charscount4').text(length);
+  });
 }); 
 
 

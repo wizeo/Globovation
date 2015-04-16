@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402161602) do
+ActiveRecord::Schema.define(version: 20150416100810) do
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20150402161602) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
+    t.boolean  "is_published"
+    t.string   "blurb"
   end
 
   add_index "solutions", ["project_id"], name: "index_solutions_on_project_id"

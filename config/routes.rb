@@ -5,8 +5,6 @@ Rails.application.routes.draw do
       resources :solutions
     end
 
-
-
   devise_for :users, controllers: {registrations: 'registrations'}
   
   root 'projects#index'

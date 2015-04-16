@@ -1,0 +1,74 @@
+// solution new/edit page -->
+textarea[name="solution[blurb]"] {
+    resize: none;
+    overflow-x: hidden;
+}
+//<-- end
+
+
+// solution show page -->
+.media-left.sol-show-grav {
+	img {
+		max-width: 60px;
+	}
+}
+
+.edit-sol-btn {
+	margin-top: 20px;
+}
+
+.show-sol-desc {
+	background-color: #fff;
+	padding: 10px 15px;
+	border-radius: 4px;
+	border: 1px solid #e6e9ed;
+}
+
+.comments-hr {
+	border-top: 1px solid #dddddd
+}
+//<-- end
+ 
+//solution wells in project show page -->
+
+.solution-quote {
+	letter-spacing: 0.1em;
+}
+
+.media-body {
+	.media-heading {
+		.h3-blue {
+				color: #32b7e5;
+		}
+		.media-header {
+			line-height: 18px;
+			margin-bottom: 0px;
+		}
+	}
+}
+
+.solutio-body {
+	a:hover {
+		text-decoration:none;
+	}
+	.media-left {
+		img {
+			width: 40px!important;
+		}
+	}
+	input[type="submit"] {
+		margin-top: 12px;
+	}
+	.lead {
+		font-size: 16px;
+		color: #888;
+  	letter-spacing: 0.2px;
+  	font-weight: 300;
+	}
+	margin-top: 20px;
+}
+
+.solution-edit {
+	margin-top: 14px;
+}
+//<--

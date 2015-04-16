@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
 
 	validates :title, presence: {message: "can\'t be empty" }
 	validates :blurb, presence: {message: "can\'t be empty" }
+	validates :description, presence: {message: "can\'t be empty" }
 	validates :budget, numericality: { only_integer: true, allow_nil: true, message: "can only store numbers" }
 	validates :location, presence: {message: "can\'t be empty" }
 end

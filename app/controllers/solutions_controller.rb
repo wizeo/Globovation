@@ -17,8 +17,7 @@ class SolutionsController < ApplicationController
   def new
     @solution = current_user.solutions.build
     @project = params[:project_id]
-    respond_with @solution
-    
+    respond_with @solution   
   end
     
 
@@ -48,7 +47,7 @@ class SolutionsController < ApplicationController
     end
 
     def solution_params
-      params.require(:solution).permit(:title, :description, :votes, :admin_approval, :project_id)
+      params.require(:solution).permit(:title, :description, :votes, :admin_approval, :project_id, :blurb, :is_published)
     end
 
      def correct_user

@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   respond_to :html
 
   def index
-    @projects = Project.all.order('created_at DESC').paginate(:page => params[:page], :per_page =>3)
+    @projects = Project.all.order('created_at DESC')
     respond_with @projects
   end
 
@@ -31,9 +31,10 @@ class ProjectsController < ApplicationController
     @project.save 
 
     flash[:info] = "Project was created and saved as draft." if draft?
-    flash[:success] = "Project was successfully created and published." if published?
-
+    flash[:success] = "Project was successfully created and published." if published? 
+    
     respond_with @project
+     
   end
 
   def update
@@ -60,7 +61,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     flash[:notice] = "Project was successfully deleted."
-    respond_with @projects
+    respond_with @project
   end
 
   private
@@ -78,7 +79,7 @@ class ProjectsController < ApplicationController
     end
 
     def published?
-      params[:commit] == "Publish"
+      params[:commit] == "Publish" && !@project.created_at.nil?
     end
 
     def unpublished?
@@ -86,7 +87,7 @@ class ProjectsController < ApplicationController
     end
 
     def draft?
-      params[:commit] == "Save as a Draft"
+      params[:commit] == "Save as a Draft" && !@project.created_at.nil?
     end
 
     def updated?

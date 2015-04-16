@@ -1,11 +1,27 @@
 //project show page
 
-#show-page {
+#project-show-page {
 	.label {
 		  font-size: 12px;
 			font-weight: 500;
 			letter-spacing: 1px;
 			vertical-align: 4px;
+	}
+	.proj-show-title {
+		h1 {
+			color:#32b7e5;
+		}
+		h4 {
+			img {
+			max-width: 25px;
+			vertical-align: bottom;
+			}
+			margin-top: 10px;
+			color: #777777;
+			font-weight: 300;
+			font-size: 20px;
+			letter-spacing: 0.7px;
+		}
 	}
 }
 
@@ -22,6 +38,7 @@
   background-size: cover;
   background-position: center center;
   height: 100%;
+  border-radius: 4px;
 }
 
 .hr-divider {
@@ -37,6 +54,7 @@
 	padding: 20px 20px;
 	margin-bottom: 20px;
 	min-height: 400px;
+	padding-top: 39px;
 
 	.nav-tabs {
 		border-bottom: 1px solid #eeeeee;
@@ -66,16 +84,10 @@
 #sectionA, #sectionB, #sectionC {
 	section {
 		font-size: 16px;
-  	color: #888;
+  	color: #555;
   	letter-spacing: 0.2px;
   	font-weight: 300;
   	margin-top: 30px;
-	}
-}
-
-#show-page {
-	.col-md-8 {
-		//display: table-cell;
 	}
 }
 
