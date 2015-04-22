@@ -77,7 +77,7 @@
                     var disqus_shortname = 'globovation';
                     var disqus_identifier = '<%= @project.id %>';
                     var disqus_title = '<%= @project.title %>';
-                    var disqus_url = '<%= url_for(@project) %>';
+                    var disqus_url = '<%= root_url(@project) %>' + 'projects/' + '<%= @project.id %>';
                     var disqus_config = function () { 
                       this.language = "en";
                     };
