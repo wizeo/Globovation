@@ -159,6 +159,10 @@ $btn-warning-border: #f6bb42;
 	margin-top: 120px;
 }
 
+.mt-115 {
+	margin-top: 115px;
+}
+
 //flash messages customized css -->
 .alert-error {
 	background-color: #f2838f;
@@ -255,7 +259,9 @@ $btn-warning-border: #f6bb42;
 	background: url(//s3.amazonaws.com/globovation/img/hp_banner.jpg) no-repeat center center;
   background-size: cover;
   min-height: 350px;
-  margin-top: 91px;
+  margin-top: -15px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 

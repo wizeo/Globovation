@@ -12,9 +12,11 @@
 </head>
 
 <body class="controller-<%= params[:controller] %>">
-	<%= render 'layouts/header' %>
 
+	<%= render 'layouts/header' %>
+<div class="mt-115">
 	<%= render 'layouts/messages' %>
 	<%= yield %>
+</div>
 </body>
 </html>

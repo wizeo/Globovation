@@ -1,5 +1,4 @@
 <%= render 'layouts/home' %>  
-<div class="container">
   <div class="row clearfix">
     <% @projects.where(:is_published => true).each do |project| %>
       <div class="col-sm-6 col-md-4">
@@ -14,5 +13,4 @@
       </div>
     <% end %> 
   </div>
-</div>
     

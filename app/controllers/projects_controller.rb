@@ -25,7 +25,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
+    @project.is_published = true if justcreated?
     @project.is_published = true if published?
+    @project.published_at = Time.zone.now if justcreated?
     @project.published_at = Time.zone.now if published?
 
     @project.save 
@@ -79,7 +81,11 @@ class ProjectsController < ApplicationController
     end
 
     def published?
-      params[:commit] == "Publish" && !@project.created_at.nil?
+      (params[:commit] == "Publish" && !@project.new_record?)
+    end
+
+    def justcreated?
+      (params[:commit] == "Publish" && @project.new_record?)
     end
 
     def unpublished?
@@ -87,7 +93,7 @@ class ProjectsController < ApplicationController
     end
 
     def draft?
-      params[:commit] == "Save as a Draft" && !@project.created_at.nil?
+      params[:commit] == "Save as a Draft"
     end
 
     def updated?
