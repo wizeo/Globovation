@@ -1,17 +1,3 @@
-//masonry fluid homepage
-$(function() {
-  return $('#masonry-container').imagesLoaded(function() {
-    return $('#masonry-container').masonry({
-      itemSelector: '.box',
-      isFitWidth: true,
-      gutterWidth: 40,
-      columnWidth: 150
-    });
-  });
-});
-
-
-
 //text area and input counter
 $(document).ready(function() {  
 	$('#input1').keyup(function() {

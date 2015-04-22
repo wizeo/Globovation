@@ -1,43 +1,43 @@
-<div id="solution-show-page">
-	<div class="row">
-		<div class="col-md-12">
-			<%= link_to 'Back', project_path(@solution.project_id) %>
+<div class="container mt-120">
+	<div id="solution-show-page">
+		<div class="row">
+			<div class="col-md-12">
+				<%= link_to '< Back to project page', project_path(@solution.project_id), class: "btn btn-primary btn-md back-project" %>
+			</div>
 		</div>
-	</div>
-  <div class="row">
-  	<p id="notice"><%= notice %></p>
-    <div class="col-md-12">
-    	<div class="media">
-      	<div class="media-left sol-show-grav">
-          <%= gravatar_for(@solution.user) %>
-      	</div>
-	      <div class="media-body">
-	        <h3 class="media-heading"> <span class="h3-blue"><%= @solution.title %></span> <br/> 
-	        	<small> Posted by: <%= @solution.user.name %>, <%= time_ago_in_words(@solution.created_at)%> ago </small> 
-	        </h3>
-	        <br/>
-	        <p class="lead"> <i class="fa fa-quote-left"></i> <%= @solution.blurb %> <i class="fa fa-quote-right"></i> </p>
-	        <div class="show-sol-desc">
-	        	<p> <%= raw(@solution.description) %> </p>
-	        </div>
-	        <div class="edit-sol-btn">
-		        <% if @solution.user == current_user %>
-	        		<%= link_to 'Edit Your Solution', edit_solution_path(@solution), class: "btn btn-success btn-md" %>      
-	    			<% end %>
-	    		</div>
-	      </div>
+	  <div class="row">
+	  	<p id="notice"><%= notice %></p>
+	    <div class="col-md-12">
+	    	<div class="media">
+	      	<div class="media-left sol-show-grav">
+	          <%= gravatar_for(@solution.user) %>
+	      	</div>
+		      <div class="media-body">
+		        <h3 class="media-heading"> <span class="h3-blue"><%= @solution.title %></span> <br/> 
+		        	<small> Posted by: <%= @solution.user.name %>, <%= time_ago_in_words(@solution.created_at)%> ago </small> 
+		        </h3>
+		        <br/>
+		        <p class="lead"> <i class="fa fa-quote-left"></i> <%= @solution.blurb %> <i class="fa fa-quote-right"></i> </p>
+		        <div class="show-sol-desc">
+		        	<p> <%= raw(@solution.description) %> </p>
+		        </div>
+		        <div class="edit-sol-btn">
+			        <% if @solution.user == current_user %>
+		        		<%= link_to 'Edit Your Solution', edit_solution_path(@solution), class: "btn btn-success btn-md" %>      
+		    			<% end %>
+		    		</div>
+		      </div>
+		    </div>
 	    </div>
-    </div>
-  </div>
-  <div class="row"> 
-  	<div class="col-md-12">
-  		<hr class="comments-hr">
-  		<h4>COMMENTS</h4>
-  	</div>
-  </div>	
+	  </div>
+	  <div class="row"> 
+	  	<div class="col-md-12">
+	  		<hr class="comments-hr">
+	  		<h4>COMMENTS</h4>
+	  	</div>
+	  </div>	
+	</div>
 </div>
-
-
 
 
 

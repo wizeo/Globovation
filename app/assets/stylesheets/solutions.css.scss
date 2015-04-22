@@ -7,6 +7,17 @@ textarea[name="solution[blurb]"] {
 
 
 // solution show page -->
+.btn.btn-primary.btn-md.back-project {
+	display: inline-block;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+}
+
+.back-project:hover {
+	text-decoration: none;
+}
+
 .media-left.sol-show-grav {
 	img {
 		max-width: 60px;

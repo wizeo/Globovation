@@ -1,117 +1,120 @@
-<div id="project-show-page">
-  <div class="row">
-    <% if @project.user == current_user %>
-      <div class="col-md-12">
-        <%= link_to 'Edit Your Project', edit_project_path(@project), class: "btn btn-success btn-lg" %>
-      </div>
-    <% end %>
+<div class="container mt-120">
+  <div id="project-show-page">
+    <div class="row">
+      <% if @project.user == current_user %>
+        <div class="col-md-12">
+          <%= link_to 'Edit Your Project', edit_project_path(@project), class: "btn btn-success btn-lg" %>
+        </div>
+      <% end %>
 
-    <div class="col-md-12 proj-show-title">
-      <h1> <%= @project.title %>
-        <% if !@project.is_published %>
-          <span class="label label-warning">Draft</span> 
-        <% end %> 
-      </h1>
-      <h4><%= gravatar_for(@project.user) %> <%= @project.user.name %> </h4> 
-    </div> 
-  </div>
-  <div class="row"> 
-    <div class="col-md-7">
-      <div class="main-image-wraper">
-        <div class="main-image-show" style="background-image: url('<%= @project.image.url(:large)%>')"> </div> 
+      <div class="col-md-6 proj-show-title">
+        <h1> <%= @project.title %>
+          <% if !@project.is_published %>
+            <span class="label label-warning">Draft</span> 
+          <% end %> 
+        </h1>
+        <h4><%= gravatar_for(@project.user) %> by <%= @project.user.name %> </h4> 
       </div>
+      <div class="col-md-6">
+      </div> 
     </div>
-    <div class="col-md-4 col-md-offset-1">
-      <div class="project-main-info">
-        <h3>The project in a sentence:<br/>
-          <small><%= @project.blurb %></small>
-        </h3>
-        <% if @project.budget != nil %>
-          <h3>Project Budget:<br/>
-            <small> $<%= @project.budget %> </small>
+    <div class="row"> 
+      <div class="col-md-7">
+        <div class="main-image-wraper">
+          <div class="main-image-show" style="background-image: url('<%= @project.image.url(:large)%>')"> </div> 
+        </div>
+      </div>
+      <div class="col-md-4 col-md-offset-1">
+        <div class="project-main-info">
+          <h3>Project blurb:<br/>
+            <small><%= @project.blurb %></small>
           </h3>
-        <% end %>
-         <h3>Located in:<br/>
-          <small> <%= raw(@project.location) %> </small>
-        </h3>
-         <h3>Pulished:
-            <% if !@project.is_published %>
-              <span class="label label-warning">Unpublished</span> 
-            <% end %>
-            <% if @project.is_published %>
-              <br/> 
-              <small> <%= @project.published_at.strftime('%a, %b %d %Y %H:%M%p (%Z)') %> </small>
-            <% end %>
-        </h3>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-   <div class="col-md-12">
-    <hr class="hr-divider">
-   </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="project-story-wraper">
-        <ul class="nav nav-tabs">
-          <li class="active">
-            <a data-toggle="tab" href="#sectionA">Story</a>
-          </li>
-          <li>
-            <a data-toggle="tab" href="#sectionB">Comments</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div id="sectionA" class="tab-pane fade in active project-story-text">
-              <section>  <%= raw(@project.description) %> </section>
-          </div>
-          <div id="sectionB" class="tab-pane fade">
-              <section>Comments interface...</section>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="project-solution-wraper">
-        <div class="solution-button">
-          <%= link_to raw('<i class="fa fa-lightbulb-o"></i> Post your solution'), new_project_solution_path(@project), class: "btn btn-warning btn-lg btn-width-100" %></li>
-        </div>
-        <div class="solutio-body">
-          <% if @solutions.where(:project_id => @project).present? %> 
-            <% @solutions.where(:project_id => @project).each  do |solution| %>
-              <%= link_to solution do %>
-                <div class="well">
-                  <div class="media">
-                    <div class="media-left">
-                      <%= gravatar_for(solution.user) %>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading"> <%= solution.user.name %> <br/>
-                        <small class="media-header"> <%= time_ago_in_words(solution.created_at)%> ago </small>
-                        <br/>
-                        <br/>
-                        <small class="solution-quote"><i class="fa fa-quote-left"></i> <%= solution.title %> <i class="fa fa-quote-right"></i></small>
-                      </h4>
-                    </div>
-                    <% if solution.user == current_user %>
-                      <div class="solution-edit">
-                        <%= link_to 'Edit Your Solution', edit_solution_path(solution), class: 'btn btn-success btn-xs' %>
-                      </div>
-                    <% end %>
-                  </div>              
-                </div>
-              <% end %>
-            <% end %>
-          <% else %>
-            <p class="lead"> Be the first to post a solution! </p>
+          <% if @project.budget != nil %>
+            <h3>Project Budget:<br/>
+              <small> $<%= @project.budget %> </small>
+            </h3>
           <% end %>
+           <h3>Project located in:<br/>
+            <small> <%= raw(@project.location) %> </small>
+          </h3>
+           <h3>Project was pulished on:
+              <% if !@project.is_published %>
+                <span class="label label-warning">Unpublished</span> 
+              <% end %>
+              <% if @project.is_published %>
+                <br/> 
+                <small> <%= @project.published_at.strftime('%a, %b %d %Y') %> </small>
+              <% end %>
+          </h3>
         </div>
       </div>
     </div>
-  </div>  
+    <div class="row">
+     <div class="col-md-12">
+      <hr class="hr-divider">
+     </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="project-story-wraper">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" href="#sectionA">Story</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#sectionB">Comments</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div id="sectionA" class="tab-pane fade in active project-story-text">
+                <section>  <%= raw(@project.description) %> </section>
+            </div>
+            <div id="sectionB" class="tab-pane fade">
+                <section>Comments interface...</section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="project-solution-wraper">
+          <div class="solution-button">
+            <%= link_to raw('<i class="fa fa-lightbulb-o"></i> Post your solution'), new_project_solution_path(@project), class: "btn btn-warning btn-lg btn-width-100" %></li>
+          </div>
+          <div class="solutio-body">
+            <% if @solutions.where(:project_id => @project).present? %> 
+              <% @solutions.where(:project_id => @project).each  do |solution| %>
+                <%= link_to solution do %>
+                  <div class="well">
+                    <div class="media">
+                      <div class="media-left">
+                        <%= gravatar_for(solution.user) %>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading"> <%= solution.user.name %> <br/>
+                          <small class="media-header"> <%= time_ago_in_words(solution.created_at)%> ago </small>
+                          <br/>
+                          <br/>
+                          <small class="solution-quote"><i class="fa fa-quote-left"></i> <%= solution.title %> <i class="fa fa-quote-right"></i></small>
+                        </h4>
+                      </div>
+                      <% if solution.user == current_user %>
+                        <div class="solution-edit">
+                          <%= link_to 'Edit Your Solution', edit_solution_path(solution), class: 'btn btn-success btn-xs' %>
+                        </div>
+                      <% end %>
+                    </div>              
+                  </div>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p class="lead"> Be the first to post a solution! </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
 </div>
-
 
 
 

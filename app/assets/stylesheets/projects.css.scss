@@ -110,6 +110,53 @@ textarea[name="project[blurb]"], textarea[name="project[description]"]  {
 }
 // <--
 
+
+//index-thumbnails
+
+@media (min-width: 768px) {
+	#index-thumb {
+		a {
+			img {
+				height: 230px;
+			}
+		}
+		h4 {
+			height: 70px;
+		}
+	} 
+}
+#index-thumb {
+	a {
+		img {
+			width: 100%;
+			overflow: hidden;
+		}
+	}
+	h4 {
+		margin-top: 0;
+		color: #555;
+		letter-spacing: 0.3px;
+		font-size: 20px;
+		line-height: 1.2em;
+	}
+	.caption {
+		img {
+		height: 25px;
+		}
+		.by-text {
+			color: #777777;
+		}
+		.read-button {
+			a{
+				width: 100%;
+			}
+			margin-bottom: 0px;
+		}
+	}
+	background-color: #fff;
+	overflow: hidden;
+}
+
 //customize Froala editor -->
 .froala-editor {
 	border: solid 1px #cccccc!important;	

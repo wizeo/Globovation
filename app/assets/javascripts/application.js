@@ -3,7 +3,6 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require masonry/jquery.masonry
 //= require froala_editor.min.js
 //= require plugins/video.min.js
 //= require_tree .

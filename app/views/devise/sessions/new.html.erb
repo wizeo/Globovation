@@ -1,32 +1,34 @@
-<div class="row sign-form">
-    <div class="col-md-4"> </div>
-    <div class="col-md-4">
-      <section class="signup-form">
-       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: "signup"}) do |f| %>
-            <%= devise_error_messages! %>         
-            <h2 class="text-center">Sign in</h2>
-                  <%= f.email_field :email, autofocus: "true", placeholder: "Email", type: "email", class: "form-control input-lg" %>
-               
-                  <% if false %>
-                    <% if @validatable %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
-                    <% end %><br />
-                  <% end %>
-
-                  <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password", class: "form-control input-lg" %>
-                  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-                  <% if false %>
-                     <% if devise_mapping.rememberable? -%> 
-                        <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me %>
+<div class="container">
+  <div class="row sign-form mt-120">
+      <div class="col-md-4"> </div>
+      <div class="col-md-4">
+        <section class="signup-form">
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: "signup"}) do |f| %>
+              <%= devise_error_messages! %>         
+              <h2 class="text-center">Sign in</h2>
+                    <%= f.email_field :email, autofocus: "true", placeholder: "Email", type: "email", class: "form-control input-lg" %>
+                 
+                    <% if false %>
+                      <% if @validatable %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
                     <% end %>
-                  <% end %>                          
-                  <%= f.submit "Sign in", class: "btn btn-lg btn-primary btn-block" %>
-            <div>
-              Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %>
-            </div>
-        <% end %>
-      </section>  
-    </div>
-    <div class="col-md-4"> </div>
+
+                    <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password", class: "form-control input-lg" %>
+                    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                    <% if false %>
+                       <% if devise_mapping.rememberable? -%> 
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                      <% end %>
+                    <% end %>                          
+                    <%= f.submit "Sign in", class: "btn btn-lg btn-primary btn-block" %>
+              <div>
+                Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %>
+              </div>
+          <% end %>
+        </section>  
+      </div>
+      <div class="col-md-4"> </div>
+  </div>
 </div>
