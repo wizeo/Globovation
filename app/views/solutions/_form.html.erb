@@ -84,11 +84,9 @@
     <%= f.hidden_field :project_id, :value => @project %>
   <% end %>
 
-  <div class="row">
-    <div class="col-md-12">          
-      <div class="form-actions pull-left">
-          <%= f.submit "Publish", class: "btn btn-success btn-lg"%>
-      </div>
+  <div class="row row-padder">         
+    <div class="form-actions">
+        <%= f.submit "Publish", class: "btn btn-success btn-lg"%>
     </div>
   </div>
 <% end %>
