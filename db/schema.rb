@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150416100810) do
 
   create_table "projects", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "main_img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150416100810) do
 
   create_table "solutions", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "votes"
     t.boolean  "admin_approval"
     t.datetime "created_at"
