@@ -11,7 +11,7 @@ xml.urlset(
   end
   @projects.each do |project|
     xml.url do
-      xml.loc "#{projects_url(project)}"
+      xml.loc "#{projects_path(project)}"
       xml.lastmod post.updated_at.strftime("%F")
       xml.changefreq("daily")
     end
