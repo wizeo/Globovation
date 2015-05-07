@@ -11,11 +11,4 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
       xml.changefreq("weekly")
       xml.priority(0.5)
   }
-  @projects.each do |p|
-    xml.url {
-      xml.loc("http://www.globovation.com/projects/#{p.id} #{p.title}")
-      xml.changefreq("daily")
-      xml.priority(1.0)
-    }
-  end
 end
