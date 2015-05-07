@@ -6,4 +6,9 @@ class Solution < ActiveRecord::Base
 	validates :title, presence: {message: "can\'t be empty" }
 	validates :blurb, presence: {message: "can\'t be empty" }
 	validates :description, presence: {message: "can\'t be empty" }
+
+	def to_param
+		"#{id} #{title}".parameterize
+	end
+	
 end

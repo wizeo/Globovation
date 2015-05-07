@@ -1,3 +1,5 @@
+<% meta title: "Globovation | Where Doers Get Inspired", description: "Expose makers, problem solvers and entrepreneurs to real-life challenges needing to be solved", keywords: %w(makers problems entrepreneurs solutions doers hackers innovation global) %>
+
 <%= render 'layouts/home' %>  
   <div class="row clearfix">
     <% @projects.where(:is_published => true).each do |project| %>

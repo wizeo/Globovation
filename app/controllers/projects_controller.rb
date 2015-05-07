@@ -25,15 +25,13 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
-    @project.is_published = true if justcreated?
-    @project.is_published = true if published?
-    @project.published_at = Time.zone.now if justcreated?
-    @project.published_at = Time.zone.now if published?
+    @project.is_published = true if published? 
+    @project.published_at = Time.zone.now if published? 
 
     @project.save 
 
-    flash[:info] = "Project was created and saved as draft." if draft?
-    flash[:success] = "Project was successfully created and published." if published? 
+    flash[:info] = "Project was created and saved as draft." if draft? && !@project.id.nil?
+    flash[:success] = "Project was successfully created and published." if published? && !@project.id.nil?
     
     respond_with @project
      
@@ -81,11 +79,7 @@ class ProjectsController < ApplicationController
     end
 
     def published?
-      (params[:commit] == "Publish" && !@project.new_record?)
-    end
-
-    def justcreated?
-      (params[:commit] == "Publish" && @project.new_record?)
+      params[:commit] == "Publish" 
     end
 
     def unpublished?

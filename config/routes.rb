@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   root 'projects#index'
   get 'about' => 'pages#about'
 
+  resources :sitemaps, :only => :show
+  get "sitemap" => "sitemaps#show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

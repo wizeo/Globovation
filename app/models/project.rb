@@ -12,4 +12,9 @@ class Project < ActiveRecord::Base
 	validates :description, presence: {message: "can\'t be empty" }
 	validates :budget, numericality: { only_integer: true, allow_nil: true, message: "can only store numbers" }
 	validates :location, presence: {message: "can\'t be empty" }
+
+	def to_param
+		"#{id} #{title}".parameterize
+	end
+	
 end
