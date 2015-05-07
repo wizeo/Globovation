@@ -5,3 +5,7 @@ Disallow: /cgi-bin/
 Disallow: /solutions
 Disallow: /solutions/*/edit
 Disallow: /projects/*/edit
+
+Allow: /
+
+//Sitemap: http://www.globovation.com/sitemap.xml

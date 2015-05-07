@@ -1,14 +1,20 @@
-base_url = "http://#{request.host_with_port}"
-xml.instruct! :xml, :version=>'1.0'
-xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
-  xml.url{
-      xml.loc("http://www.globovation.com")
-      xml.changefreq("daily")
-      xml.priority(1.0)
-  }
-  xml.url{
-      xml.loc("http://www.globovation.com/about")
+xml.instruct!
+xml.urlset(
+  'xmlns'.to_sym => "http://www.sitemaps.org/schemas/sitemap/0.9",
+  'xmlns:image'.to_sym => "http://www.google.com/schemas/sitemap-image/1.1"
+) do
+  @static_pages.each do |page|
+    xml.url do
+      xml.loc "#{page}"
       xml.changefreq("weekly")
-      xml.priority(0.5)
-  }
+    end
+  end
+  @projects.each do |project|
+    xml.url do
+      xml.loc "#{projects_url(project)}"
+      xml.lastmod post.updated_at.strftime("%F")
+      xml.changefreq("daily")
+    end
+  end
 end
+
