@@ -17,4 +17,3 @@ xml.urlset(
     end
   end
 end
-

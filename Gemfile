@@ -18,6 +18,7 @@ gem 'paperclip', '~>4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'will_paginate', '~> 3.0.6'
 gem 'metamagic', '~> 3.1.7'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development, :test do 
